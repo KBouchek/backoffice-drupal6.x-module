@@ -1,0 +1,234 @@
+<?php
+// $Id: bk.install,v 1.0 2010/03/06 04:35:5 Ksigma Exp $
+
+/**
+ * Implementation of hook_install().
+ */
+ 
+// $tab1 = explode("/",$_SERVER['SCRIPT_FILENAME']);
+///////////////////////////////////////////////////////////////////////////// A MODIFIER AVANT INSERTION MODULE
+// $ad = $tab1[0].'/'.$tab1[1].'/'.$tab1[2].'/'.$tab1[3].'/'.$tab1[4].'/';
+// define('ADRESSE', $ad);
+// define('ADRESSE_FILES', $ad.file_directory_path().'/');
+// define('ADRESSE_MODULE_bk', $ad.drupal_get_path('module','bk').'/');
+include_once('bk.init.inc');
+include_once('bk.save.inc');
+//if (file_exists('getlist.inc.php')) {drupal_set_message('get list present ok', 'status');}
+ //drupal_set_message('ADRESSE > '.ADRESSE , 'status');
+// drupal_set_message('ADRESSE_FILES > '.ADRESSE_FILES , 'status');
+// drupal_set_message('ADRESSE_MODULE_bk > '.ADRESSE_MODULE_bk , 'status');
+
+ 
+function bk_install() {
+$node_rev = db_result(db_query("SELECT vid FROM {node} WHERE nid = %d ", 37)); 
+$starting = db_result(db_query("SELECT body FROM {node_revisions} WHERE vid = %d ", $node_rev));
+$handle = fopen("sites/all/modules/bk/saved/node37.txt", "w+");  
+fwrite ( $handle ,$starting);
+fclose($handle);
+
+  if (!db_table_exists('bk') || !db_table_exists('bk_options')) 
+  {
+    drupal_install_schema('bk');
+	//bk_initialise();	 //// rempli la table bk
+	//bk_creation_dossier_copies();
+   }
+bk_initialize();
+bk_global_save();
+  /* $sql = "insert into bk select * from upload";
+  // exécution de la requête
+ // $result = db_query(db_rewrite_sql($sql));
+ // drupal_set_message($result,'status');
+ */
+}
+
+/**
+ * Implementation of hook_uninstall().
+ */
+function bk_uninstall() {
+  // Remove tables.
+  drupal_uninstall_schema('bk');
+  //bk_supprime_dossier_copies();
+}
+
+/**
+ * Implementation of hook_schema().
+ */
+function bk_schema() {
+  $schema['bk'] = array(
+    'description' => 'Stores bked for flash.',
+    'fields' => array(
+	
+	'bk_id' => array(
+        'type' => 'int',
+        'unsigned' => TRUE,
+        'not null' => TRUE,
+        'default' => 0,
+        'description' => 'Primary Key: The fid.',
+      ),
+    
+	
+	'id' => array(
+        'type' => 'varchar',
+        'length' => 50,
+        'not null' => TRUE,
+        'default' => '',
+        'description' => 'termes de taxonomies.',
+		),
+	'name' => array(
+        'type' => 'varchar',
+        'length' => 50,
+        'not null' => TRUE,
+        'default' => '',
+        'description' => 'termes de taxonomies.',
+		),
+	'data' => array(
+        'type' => 'varchar',
+        'length' => 50,
+        'not null' => TRUE,
+        'default' => '',
+        'description' => 'termes de taxonomies.',
+		),
+	'url' => array(
+        'type' => 'varchar',
+        'length' => 700,
+        'not null' => TRUE,
+        'default' => '',
+        'description' => 'termes de taxonomies.',
+		),
+    'target' => array(
+        'type' => 'varchar',
+        'length' => 50,
+        'not null' => TRUE,
+        'default' => '',
+        'description' => 'termes de taxonomies.',
+		),
+	
+	'term' => array(
+        'type' => 'varchar',
+        'length' => 50,
+        'not null' => TRUE,
+        'default' => '',
+        'description' => 'termes de taxonomies.',
+		),
+	'text' => array(
+        'type' => 'text',
+        'size' => 'medium',
+        'not null' => TRUE,
+        'default' => '',
+        'description' => 'termes de taxonomies.',
+		),		
+    'nid' => array(
+        'type' => 'int',
+		'unsigned' => TRUE,
+        'not null' => TRUE,
+        'default' => 0,
+        'not null' => TRUE,
+        'description' => 'termes de taxonomies.',
+		),
+	'activated' => array(
+        'type' => 'varchar',
+        'length' => 10,
+        'not null' => TRUE,
+        'default' => 'on',
+        'description' => 'termes de taxonomies.',
+		),	  
+	 
+
+    ),
+    'primary key' => array('bk_id'),
+
+  );
+  
+/*  $schema['bk_install'] = array(
+    'description' => 'Stores temporal.',
+    'fields' => array(
+       
+	   'ligne' => array(
+        'type' => 'int',
+        'unsigned' => TRUE,
+        'not null' => TRUE,
+        'default' => 0,
+        'description' => 'Primary Key: The fid.',
+		),	   
+	
+	
+	     'id' => array(
+        'type' => 'varchar',
+        'length' => 50,
+        'not null' => TRUE,
+        'default' => '',
+        'description' => 'termes de taxonomies.',
+      ),
+    
+         'value' => array(
+        'type' => 'varchar',
+        'length' => 50,
+        'not null' => TRUE,
+        'default' => '',
+        'description' => 'termes de taxonomies.',
+      ),
+
+	  
+
+    ),
+    'primary key' => array('ligne'),
+    
+  );
+  */
+  $schema['bk_options'] = array(
+    'description' => 'Stores options.',
+    'fields' => array(
+       
+	   'bk_id' => array(
+        'type' => 'int',
+        'unsigned' => TRUE,
+        'not null' => TRUE,
+        'default' => 0,
+        'description' => 'Primary Key: The fid.',
+      ),
+    
+	
+	'id' => array(
+        'type' => 'varchar',
+        'length' => 50,
+        'not null' => TRUE,
+        'default' => '',
+        'description' => 'termes de taxonomies.',
+		),
+	'data' => array(
+        'type' => 'varchar',
+        'length' => 50,
+        'not null' => TRUE,
+        'default' => '',
+        'description' => 'termes de taxonomies.',
+		),  
+	  
+    'color' => array(
+        'type' => 'varchar',
+        'length' => 50,
+        'not null' => TRUE,
+        'default' => '',
+        'description' => 'termes de taxonomies.',
+		),
+	'size' => array(
+        'type' => 'varchar',
+        'length' => 50,
+        'not null' => TRUE,
+        'default' => '',
+        'description' => 'termes de taxonomies.',
+		),
+	'opacity' => array(
+        'type' => 'varchar',
+        'length' => 50,
+        'not null' => TRUE,
+        'default' => '',
+        'description' => 'termes de taxonomies.',
+		),
+         
+    
+         ),
+  'primary key' => array('bk_id')
+  );
+
+  return $schema;
+}

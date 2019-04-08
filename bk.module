@@ -1,0 +1,441 @@
+<?php
+// $Id: bk.module Exp $
+
+/**
+ * 
+ * 
+ *
+ */
+include_once('bk.save.inc');
+include_once('bk.color.inc');
+ include_once("bk.admin.inc");
+ 
+function bk_init() {
+ drupal_add_js(drupal_get_path('module','bk').'/getcountry.js');
+}
+
+function bk_menu () {
+  $items = array();
+  $items['admin/bk'] = array(
+    'title' => 'Countries' , // titre de la page quand on se rendra sur l'url 'exemple-de-page'
+    'page callback' => 'bk_page', // La fonction appelée lorsqu'on se rend sur l'url exemple-de-page
+    'access arguments' => array('administer site configuration'), //un accès doit obligatoirement être précisé
+    'type' => MENU_NORMAL_ITEM, 
+    );
+	  $items['admin/bk/country/%'] = array(
+    
+    'page callback' => 'drupal_get_form',
+	'page arguments' => array('bk_country_form', 3),
+    'access arguments' => array('administer site configuration'),
+	'type' => MENU_CALLBACK,
+  );
+     $items['admin/bk/options'] = array(
+    'title' => 'Colors options ',
+    'description' => 'bk colors',
+    'page callback' => 'bk_page_colors',
+    'access arguments' => array('administer site configuration'),
+	'file' => 'bk.color.inc',
+	'type' => MENU_CALLBACK,
+  );
+     $items['admin/bk/options/modify/%'] = array(  
+    'page callback' => 'drupal_get_form',
+	'page arguments' => array('bk_color_modify_form', 4),
+	'file' => 'bk.color.inc',
+    'access arguments' => array('administer site configuration'),
+	'type' => MENU_CALLBACK,
+  );
+   $items['admin/bk/options/createcolor'] = array(  
+    'page callback' => 'bk_createcolor',
+	//'page arguments' => array(4),
+	'file' => 'bk.color.inc',
+    'access arguments' => array('administer site configuration'),
+	'type' => MENU_CALLBACK,
+  );
+     $items['admin/bk/options/deletecolor/%'] = array(  
+    'page callback' => 'bk_deletecolor',
+	'page arguments' => array(4),
+	'file' => 'bk.color.inc',
+    'access arguments' => array('administer site configuration'),
+	'type' => MENU_CALLBACK,
+  );
+       $items['admin/bk/give/%'] = array(  
+    'page callback' => 'bk_give',
+	'page arguments' => array(3),
+    'access arguments' => array('administer site configuration'),
+	'type' => MENU_CALLBACK,
+	
+  );
+  $items['admin/bk/adminsettings'] = array(
+      'access arguments' => array('administer site configuration'),
+    'page callback' => 'drupal_get_form',
+	'page arguments' => array('bk_admin_settings'),
+      'type' => MENU_CALLBACK,
+    );
+  
+  
+    return $items;
+}
+
+
+
+
+
+function bk_give($arg) {
+
+$retour_giv = array();
+$initial_retour = '';
+$path_bk = drupal_get_path('module','bk');
+$path_reg = drupal_get_path('module','flash');
+if($arg == 'countries') {$name_file = $path_bk.'/data.xml';}
+if($arg == 'regions') {$name_file = $path_reg .'/flash.xml';}
+//$name_file = './sites/map/world/data.xml';
+$ligne = 0;
+if (is_file($name_file) && $handle = fopen($name_file, "r"))
+{
+while (!feof($handle)) {
+	$ligne++;
+  $initial_retour .= fread($handle, 35024);
+}
+fclose($handle);
+$texte = '';
+//$texte .= '<div><a href="/admin/bk">Countries settings</a></div>';
+$texte .= nl2br(htmlspecialchars($initial_retour)); 
+$ret_tab = array('texte' => $texte);
+return drupal_json($ret_tab);
+exit();
+		}
+
+else{return "no such fil bby";}
+
+}
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+/////////// /////////// /////////// /////////// /////////// /////////// /////////// /////////// 
+/////////// /////////// /////////// /////////// main page  //////////////// /////////// 
+/////////// /////////// /////////// /////////// /////////// /////////// /////////// 
+function bk_page(){
+$admod = drupal_get_path('module','bk');
+drupal_add_js($admod.'/js/jquery.js');
+drupal_add_js($admod.'/js/colorpicker.js');
+drupal_add_js($admod.'/js/eye.js');
+drupal_add_js($admod.'/js/utils.js');
+drupal_add_js($admod.'/js/layout.js');
+drupal_add_css($admod.'/css/colorpicker.css');
+drupal_add_js($admod.'/js/bk.js');
+///////////////////////////////// lecture des couleurs
+$col = db_query("SELECT * FROM {bk_options} WHERE id = 'range'");  
+$colors = array();
+while ($rowz = db_fetch_object($col)) { $colors[$rowz->data] = $rowz->color ; }
+
+///////////////////////////////// le menu des initiales
+$ni= db_query("SELECT * FROM {bk}");  
+$initials = array();
+while ($row_country = db_fetch_object($ni)) { 
+                                             $initial = substr($row_country->name, 0, 1);
+											 if (!in_array($initial,$initials)) {
+											 $initials[$row_country->name] = $initial ;
+											                                   }
+											 }
+//drupal_set_message(count($initials));
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////// ECRITURE MAIN PAGE ////////////////////////////////////////////////////////////
+//$titre = '<a href="/admin/bk/regions">Regions</a> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <small> to countries settings</small> ';
+drupal_set_title('<font color="green">Countries settings</font>');
+
+//drupal_set_message(variable_get($titre);
+$out = '';
+$out .= '
+<style type="text/css">  
+  
+ /* Z-index of #mask must lower than #boxes .window */  
+ #mask {  
+  position:absolute;  
+  z-index:9000;  
+  background-color:#000;  
+  display:none;  
+ width:440px;    
+  }  
+ 
+ </style> 
+	<!-- Do not remove div#mask, because youll need it to fill the whole screen -->	
+ 	<div id="mask"></div>
+</div>';
+
+$out .='<a href="/admin/bk"><font color="green">countries</font></a> ';
+if (module_exists('flash')) {$out .='|| <a href="/admin/flash"><font color="#FF0000">regions</font></a><br>';}
+
+$out .= '<div><a href="/admin/bk/options">colors</a>&nbsp;&nbsp;&nbsp;||&nbsp;&nbsp;&nbsp;<a href="/Country-Activities" target="_blank">map</a>&nbsp;&nbsp;&nbsp;||&nbsp;&nbsp;&nbsp;<a href="/admin/bk/adminsettings">settings</a>&nbsp;&nbsp;&nbsp;||&nbsp;&nbsp;&nbsp;<a name="modal" href="#" id="xml" name="countries"><small>xml countries</small></a>&nbsp;&nbsp;&nbsp;||&nbsp;&nbsp;&nbsp;<a name="modal" href="#" id="xmr"><small>xml regions</small></a><div><br>';
+$a2_bk = arg(2);
+if(($a2_bk !== 'cp') && ($a2_bk !== 'cm')) {
+foreach ($initials as $cou => $country_initial) { $out .= '<a href="#'.$country_initial.'">'.$country_initial.'</a>&nbsp;&nbsp;&nbsp;&nbsp;'; }
+$out .= '<br>';
+}
+$out .= '<table border=1><th><center><a href="/admin/bk">+</a>&nbsp;&nbsp;&nbsp;&nbsp;Country settings access &nbsp;&nbsp;&nbsp;&nbsp;
+<a href="/admin/bk/nm">-</a></center></th><th style="width:100px;"><center><a href="/admin/bk/cp">+</a>&nbsp;&nbsp;&nbsp;&nbsp; Color &nbsp;&nbsp;&nbsp;&nbsp;<a href="/admin/bk/cm">-</a></center></th><th><center>Link</center></th>';
+//$out .= '<div style="margin-left:70px;"><a href="/admin/bk/options">to colors</a>&nbsp;&nbsp;&nbsp;<a href="/Country-Activities">Country-Activities</a></div>';
+//$out .= '<tr><td><a href="/admin/bk/options">to colors</a></td><td><a href="/Country-Activities">Country-Activities</a></td></tr>';
+
+switch ($a2_bk) {
+ case 'cp' :
+             $reqcountry = "SELECT * FROM {bk} ORDER BY data ASC";
+			 break;
+ case 'cm' :
+             $reqcountry = "SELECT * FROM {bk} ORDER BY data DESC";
+			 break;
+ case 'nm' :
+             $reqcountry = "SELECT * FROM {bk} ORDER BY name DESC";
+			 break;			 
+ case '' :
+             $reqcountry = "SELECT * FROM {bk} ORDER BY name ASC";
+			 break;
+                }
+
+$req_country = db_query($reqcountry);
+$country = array();
+
+   while ($row = db_fetch_object($req_country)) { 
+
+   if (in_array($row->data,array_keys($colors))) {
+   
+                                                  $magic = ' bgcolor="#'.$colors[$row->data].'"';
+												  //drupal_set_message($magic);
+												  } else {$magic =''; }
+												  
+	if (in_array($row->name,array_keys($initials))) {                                                  
+                                                  $encre = '<A NAME="'.$initials[$row->name].'"></A>';
+												  //drupal_set_message($magic);
+												  } else {$encre =''; }
+												  
+
+$out .=  '<tr '.$magic.' ><td><small>'.$row->bk_id.'</small>&nbsp;&nbsp;'.$encre.'<a href="/admin/bk/country/'.$row->id.'"><font color="#000000" >'.$row->name.'</font></a></td><td><center>'.$row->data.'</center></td><td><a href="'.$row->url.'">'.$row->url.'</a></td></tr>';
+}
+$out .= '</table>'; 
+return $out;
+}
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////// country form  /////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////
+function bk_country_form($idx,$ar) {
+
+
+$activated ='';
+$req = db_query("SELECT * FROM {bk} WHERE id = '%s'",$ar);  
+     while ($row = db_fetch_object($req)) { $bk_id = $row->bk_id ;  
+	 $id = $row->id ; $name=$row->name ;
+	 $url= $row->url ; $data = $row->data ;
+	 $target = $row->target ;
+	 $term = $row->term ;
+	 $nid = $row->nid; 
+	 $text = $row->text;
+	 $activated = $row->activated;
+	 }
+	 
+$out_color = '';	 
+$req_col = db_query("SELECT data,color FROM {bk_options} WHERE id = '%s' ORDER BY bk_id",'range');  
+$tabco = array();
+     while ($rowy = db_fetch_object($req_col)) { 
+	                                            $tabco[$rowy->data] = $rowy->color;
+	                                           $bk_color_data = $rowy->data ;  
+	                                           $bk_color_color = $rowy->color ;
+	                                            $out_color .= '<div class="up" id="" style="background-color:#000000;width:100px;"><font color="#'.$bk_color_color.'">'.$bk_color_data.' -> '.$bk_color_color.'</font></div>';
+									             }
+if($activated == 'on') {$a = 1;} else {$a = 0;}   
+
+$options = array( 1 => t('On'), 0 =>  t('Off') );
+
+////////////////////////////////////////////////
+   $country = array();
+   $country['tutu'] = array(
+    	'#value' => '<div align="middle"> <a href="/admin/bk"> Countries settings</a>&nbsp;&nbsp;&nbsp;<a href="/admin/bk/options"><small>to colors</small></a>&nbsp;</div>',
+		);   
+   $country['fieldset'] = array(
+    	'#type' => 'fieldset',
+    	'#title' => $name.' settings',
+    	'#collapsible' => TRUE,
+    	'#collapsed' => FALSE,
+		);	
+	 $country['fieldset']['name'] = array(
+    '#type' => 'textfield',
+    '#title' => 'name',
+	'#default_value' =>  $name,
+    '#required' => True,
+	'#description' => 'Name of country in the map and the selectlist<br><b>please no html</b>',
+     ); 
+     $country['fieldset']['url'] = array(
+       '#type' => 'textfield',
+	   '#title' => 'url',
+	  '#default_value' =>  $url,
+	  '#size' =>  150,
+	    '#default_value' =>  $url,
+      '#required' => True,
+	  '#description' => '<b>for internal link : </b><br><font color="red">/Country-Activity/term-name</font> (for pdf effect)<br>or<br><font color="red">/whatever-url-created-in-drupal</font><br><b>for external url : </b><br>any url <b><font color="red">starting by http://</font></b>',
+      );
+	  $country['fieldset']['data'] = array(
+       '#type' => 'textfield',
+	   '#title' => 'data',
+      '#name' => 'data',
+	  '#default_value' =>  $data,
+	   '#description' => 'Color code : <br>if set to <b>0 or empty</b> , the country is <b>disabled</b> and shall be ignored in flash and selectlist'.$out_color ,
+      '#required' => False,
+      );
+
+	  $country['fieldset']['text'] = array(
+       '#type' => 'textarea',
+	   '#title' => 'admin note',
+	   '#resizable' => true,
+	    '#rows' => 2,
+	  '#default_value' =>  $text,
+	   '#description' => 'Some notes you what to remember about this country<br><small>This field wont be displayed, use node body instead..</small>',
+      '#required' => False,
+      );	  
+	  $country['fieldset']['target'] = array(
+       '#type' => 'textfield',
+	    '#title' => 'target',		
+      '#name' => 'target',
+	  '#default_value' =>  $target,
+	   '#description' => 'You know what, maybe set to _blank would work .. ',
+      '#required' => True,
+      );
+	  $country['fieldset']['term'] = array(
+       '#type' => 'textfield',
+	   '#title' => 'internal link',
+      '#name' => 'term',
+	  '#prefix' => '',
+	  '#default_value' => '/Country-Activity/'.$term ,
+	  '#description' => 'should be <font color="red">taxonomy term name or /Country-Activity/taxonomy term name</font> ,if empty or equal /Country-Activity/ , please enter term name by going to <b><font color="red">/admin/content/taxonomy/5</font></b> <br> pdf effect shall only enable on this type of url , dont remove',
+      '#required' => False,
+      );
+	  	  $country['fieldset']['nodeid'] = array(
+       '#type' => 'textfield',
+	   '#title' => 'node id',
+	   '#size' => 6,
+	  '#default_value' => $nid ,
+	  '#description' => 'node id, necessary if node effect on',
+      '#required' => False,
+      );
+	  if ($nid > 0) {
+	  $country['fieldset']['nid'] = array(
+       '#type' => 'markup',
+	  '#prefix' =>  '<a href="/node/'.$nid.'" target="_blank">',
+	   '#suffix' => '</a><br><br>',
+      '#value' => 'go to node '.$nid,
+      );}
+	  $country['fieldset']['node_effect'] = array(
+       '#type'  => 'radios',
+	   '#title' => t('Pdf preview'), 
+
+	  '#options' => $options,
+	  '#default_value'   => $a,
+       '#required' => TRUE,
+		'#description' => t('no effect on results when Off'),				  
+      );	  
+	  $country['fieldset']['hidden'] = array('#type' => 'value', '#value' => $ar);
+      $country['fieldset']['submit'] = array(
+	      '#type' => 'submit', 
+		  '#value' => t('Save '.$name.' settings'),
+		  );
+$country['retour'] = array(
+
+	 '#prefix' => '<a href="/admin/bk">',
+	  '#suffix'  => '</a>',
+	  '#value' =>  'exit without saving',
+	  '#attributes' => array( 'style' => 'float="middle"' ),
+	  );
+    return $country;
+  
+}
+
+function bk_country_form_submit(&$form, &$form_state) {
+//drupal_set_message($form['id']);
+$termx = $form_state['values']['term'];
+if($termx !== '' && $termx !== '/Country-Activity/')
+  {$xterm = explode('/',$termx); $nbscor = count($xterm); $term_good = $xterm[$nbscor-1];} 
+  else {$term_good = $form_state['values']['term'];}
+
+ 
+if($form_state['values']['node_effect'] == 1) {$node_good = 'on';} else {$node_good = 'off';}
+//drupal_set_message($node_good);
+
+db_query("UPDATE {bk} SET `name` = '%s',  `data` = '%s'               ,  `url` = '%s'                ,   `target` = '%s'      ,            `term` = '%s' ,   `text` = '%s' ,                    `nid` = %d     ,              `activated` = '%s'                     WHERE id = '%s'",
+           $form_state['values']['name'], $form_state['values']['data'],  $form_state['values']['url'],  $form_state['values']['target'] ,  $term_good     , $form_state['values']['text'] , $form_state['values']['nodeid'],      $node_good ,                 $form_state['values']['hidden']);
+  drupal_set_message($form_state['values']['name'].' settings has been saved.');
+  bk_global_save();
+  
+drupal_goto('admin/bk');
+}
+
+
+
+
+
+function bk_nodeapi(&$node, $op, $teaser, $page) {
+global $user;
+
+
+   switch ($op) {
+
+      case 'view' : {
+	  
+	 $activ_opt = db_result(db_query("SELECT activated FROM {bk}  WHERE nid = %d ", $node->nid)); 		 
+  //while ($row = db_fetch_object($req_country)) {$outflash[] = $row->filepath.'';} 
+	  
+	  
+/////////////////////////////////////////// action sur les pages de résultats	 
+         if ($node->type == 'page_resultat_mapflash'  && !$teaser) {
+$outflash = array();		 
+$place = 0;
+
+if($activ_opt == 'on' || $node->nid == 1316) 
+                    {
+$req_country = db_query("SELECT * FROM {files} f INNER JOIN {upload} u ON u.fid = f.fid WHERE u.nid = %d AND f.filemime ='%s' AND u.list = %d", $node->nid,'application/pdf',1); 		 
+  while ($row = db_fetch_object($req_country)) {$outflash[] = $row->filepath.'';}	
+  
+		 $nb = count($outflash);
+		 if ($nb > 0) {
+		 $interieur = '<div><center><a href="/Country-Activities">Back to Country Activities</a></center></div><br>';
+		 foreach ($outflash as $cle => $adresse) {
+		 
+		 $interieur .= '<div width="700" height="700"><object data="/'.$adresse.'" type="application/pdf" width="699" height="699" >
+	                                                            <param name="src" value="/'.$adresse.'"></param>
+	                                                               <a href="http://get.adobe.com/reader/">Please install pdf reader to see this content</a>
+                                                                   </object></div><div>&nbsp;</div>
+																   ';
+		//marche ok ! '#value' => '<div>'.'<iframe src="/'.$out.'" width="700" height="600" align="middle"></iframe>'.'</div>' ,                                                 
+		                                             }
+								
+													 $node->content['bk'] = array ( '#value' => $interieur ,'#weight' => 10 );
+													 
+	 
+		               }
+					}
+		 
+          
+                                                               }
+//////////////////////////////////////////////// fin d'action résultats
+
+
+
+//////////////////////////////////////////////// action noeud 37
+if ($node->nid == 37 && !$teaser) {	
+/*
+$body = '';
+
+
+
+
+$node->content = array (
+    '#value' => $body,
+    '#weight' => 1);
+*/
+}
+//////////////////////////////////////////////// fin action noeud 37
+
+																
+                    } ///fin du case
+
+		}  //// fin de op
+		
+		
+}  // fin focntion node api
+
+

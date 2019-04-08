@@ -1,0 +1,5 @@
+; $Id
+name = bk
+description = cute transition between old map and new map countries.
+core = 6.x
+package = A Flash

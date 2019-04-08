@@ -1,0 +1,683 @@
+<countrydata>
+<state id="range">
+<data>0</data>
+<color>B3BFBF</color>
+</state>
+<state id="range">
+<data>1</data>
+<color>628220</color>
+</state>
+<state id="range">
+<data>2</data>
+<color>F99C4F</color>
+</state>
+<state id="range">
+<data>3</data>
+<color>FFFF00</color>
+</state>
+<state id="range">
+<data>4</data>
+<color>FFFF00</color>
+</state>
+<state id="range">
+<data>5</data>
+<color>FFFF00</color>
+</state>
+<state id="range">
+<data>6</data>
+<color>FFFF00</color>
+</state>
+<state id="default_color">
+<color>bbbbbb</color>
+</state>
+<state id="background_color">
+<color>EFEFEF</color>
+</state>
+<state id="outline_color">
+<color>666666</color>
+</state>
+<state id="default_point">
+<color>333333</color>
+<size>5</size>
+<opacity>100</opacity>
+</state>
+<state id="first_zoom">
+</state>
+<state id="zoom_mode">
+</state>
+<state id="zoom_out_center">
+</state>
+<state id="zoom_out_scale">
+<data>100</data>
+</state>
+<state id="AF">
+<name>Afghanistan</name>
+<data>2</data>
+<url>javascript:getcountry_country("/Country-Activity/AFGHANISTAN");</url>
+</state>
+<state id="AL">
+<name>Albania</name>
+<data>2</data>
+<url>javascript:getcountry_country("/Country-Activity/ALBANIA");</url>
+</state>
+<state id="AG">
+<name>Algeria</name>
+<data>2</data>
+<url>javascript:getcountry_country("/Country-Activity/ALGERIA");</url>
+</state>
+<state id="AO">
+<name>Angola</name>
+<data>1</data>
+<url>javascript:getcountry_country("/Country-Activity/ANGOLA");</url>
+</state>
+<state id="AR">
+<name>Argentina</name>
+<data>3</data>
+<url>javascript:getcountry_country("http://www.ihsn.org/adp/index.php?q=country-activities/Argentina");</url>
+</state>
+<state id="AM">
+<name>Armenia</name>
+<data>2</data>
+<url>javascript:getcountry_country("/Country-Activity/ARMENIA");</url>
+</state>
+<state id="AJ">
+<name>Azerbaijan</name>
+<data>2</data>
+<url>javascript:getcountry_country("/Country-Activity/AZERBAIJAN");</url>
+</state>
+<state id="BG">
+<name>Bangladesh</name>
+<data>1</data>
+<url>javascript:getcountry_country("/Country-Activity/BANGLADESH");</url>
+</state>
+<state id="BB">
+<name>Barbados</name>
+<data>1</data>
+<url>javascript:getcountry_country("/Country-Activity/BARBADOS");</url>
+</state>
+<state id="BN">
+<name>Benin</name>
+<data>1</data>
+<url>javascript:getcountry_country("/Country-Activity/BENIN");</url>
+</state>
+<state id="BT">
+<name>Bhutan</name>
+<data>2</data>
+<url>javascript:getcountry_country("/Country-Activity/BHUTAN");</url>
+</state>
+<state id="BL">
+<name>Bolivia</name>
+<data>1</data>
+<url>javascript:getcountry_country("/Country-Activity/BOLIVIA");</url>
+</state>
+<state id="BK">
+<name>Bosnia and Herzegovina</name>
+<data>2</data>
+<url>javascript:getcountry_country("/Country-Activity/BOSNIA-HERZEGOVINA");</url>
+</state>
+<state id="BC">
+<name>Botswana</name>
+<data>2</data>
+<url>javascript:getcountry_country("/Country-Activity/BOTSWANA");</url>
+</state>
+<state id="BR">
+<name>Brazil</name>
+<data>3</data>
+<url>javascript:getcountry_country("http://www.ihsn.org/adp/index.php?q=country-activities/Brazil");</url>
+</state>
+<state id="UV">
+<name>Burkina Faso</name>
+<data>1</data>
+<url>javascript:getcountry_country("/Country-Activity/BURKINA-FASO");</url>
+</state>
+<state id="BY">
+<name>Burundi</name>
+<data>1</data>
+<url>javascript:getcountry_country("/Country-Activity/BURUNDI");</url>
+</state>
+<state id="CB">
+<name>Cambodia</name>
+<data>1</data>
+<url>javascript:getcountry_country("/Country-Activity/CAMBODIA");</url>
+</state>
+<state id="CM">
+<name>Cameroon</name>
+<data>1</data>
+<url>javascript:getcountry_country("/Country-Activity/CAMEROON");</url>
+</state>
+<state id="CV">
+<name>Cape Verde</name>
+<data>2</data>
+<url>javascript:getcountry_country("/Country-Activity/CAPE-VERDE");</url>
+</state>
+<state id="CT">
+<name>Central African Republic</name>
+<data>1</data>
+<url>javascript:getcountry_country("/Country-Activity/CENTRAL-AFRICAN-REPUBLIC");</url>
+</state>
+<state id="CD">
+<name>Chad</name>
+<data>1</data>
+<url>javascript:getcountry_country("/Country-Activity/CHAD");</url>
+</state>
+<state id="CH">
+<name>China</name>
+<data>2</data>
+<url>javascript:getcountry_country("/Country-Activity/CHINA");</url>
+</state>
+<state id="CO">
+<name>Colombia</name>
+<data>2</data>
+<url>javascript:getcountry_country("/Country-Activity/COLOMBIA ");</url>
+</state>
+<state id="CN">
+<name>Comoros</name>
+<data>1</data>
+<url>javascript:getcountry_country("/Country-Activity/COMOROS");</url>
+</state>
+<state id="CF">
+<name>Congo, Republic of</name>
+<data>1</data>
+<url>javascript:getcountry_country("/Country-Activity/CONGO-REPUBLIC-OF");</url>
+</state>
+<state id="CG">
+<name>Democratic Republic of the Congo</name>
+<data>1</data>
+<url>javascript:getcountry_country("/Country-Activity/CONGO-DEMOCRATIC-REPUBLIC");</url>
+</state>
+<state id="IV">
+<name>Cote d'Ivoire</name>
+<data>1</data>
+<url>javascript:getcountry_country("/Country-Activity/C%C3%94TE-D'IVOIRE");</url>
+</state>
+<state id="DJ">
+<name>Djibouti</name>
+<data>1</data>
+<url>javascript:getcountry_country("/Country-Activity/DJIBOUTI");</url>
+</state>
+<state id="DO">
+<name>Dominica</name>
+<data>2</data>
+<url>javascript:getcountry_country("/Country-Activity/DOMINICA");</url>
+</state>
+<state id="DR">
+<name>Dominican Republic</name>
+<data>2</data>
+<url>javascript:getcountry_country("/Country-Activity/DOMINICAN-REPUBLIC");</url>
+</state>
+<state id="EC">
+<name>Ecuador</name>
+<data>2</data>
+<url>javascript:getcountry_country("/Country-Activity/ECUADOR");</url>
+</state>
+<state id="EG">
+<name>Egypt</name>
+<data>2</data>
+<url>javascript:getcountry_country("/Country-Activity/EGYPT");</url>
+</state>
+<state id="ES">
+<name>El Salvador</name>
+<data>1</data>
+<url>javascript:getcountry_country("/Country-Activity/EL-SALVADOR");</url>
+</state>
+<state id="EK">
+<name>Equatorial Guinea</name>
+<data>2</data>
+<url>javascript:getcountry_country("/Country-Activity/EQUATORIAL-GUINEA");</url>
+</state>
+<state id="ER">
+<name>Eritrea</name>
+<data>2</data>
+<url>javascript:getcountry_country("/Country-Activity/ERITREA");</url>
+</state>
+<state id="ET">
+<name>Ethiopia</name>
+<data>1</data>
+<url>javascript:getcountry_country("/Country-Activity/ETHIOPIA");</url>
+</state>
+<state id="FM">
+<name>Federated States of Micronesia</name>
+<data>2</data>
+<url>javascript:getcountry_country("/Country-Activity/MICRONESIA");</url>
+</state>
+<state id="FJ">
+<name>Fiji</name>
+<data>1</data>
+<url>javascript:getcountry_country("/Country-Activity/FIJI");</url>
+</state>
+<state id="GB">
+<name>Gabon</name>
+<data>1</data>
+<url>javascript:getcountry_country("/Country-Activity/GABON");</url>
+</state>
+<state id="GA">
+<name>Gambia</name>
+<data>1</data>
+<url>javascript:getcountry_country("/Country-Activity/GAMBIA");</url>
+</state>
+<state id="GG">
+<name>Georgia</name>
+<data>2</data>
+<url>javascript:getcountry_country("/Country-Activity/GEORGIA");</url>
+</state>
+<state id="GH">
+<name>Ghana</name>
+<data>2</data>
+<url>javascript:getcountry_country("/Country-Activity/GHANA");</url>
+</state>
+<state id="GJ">
+<name>Grenada</name>
+<data>1</data>
+<url>javascript:getcountry_country("/Country-Activity/GRENADA");</url>
+</state>
+<state id="GT">
+<name>Guatemala</name>
+<data>2</data>
+<url>javascript:getcountry_country("/Country-Activity/GUATEMALA");</url>
+</state>
+<state id="GV">
+<name>Guinea</name>
+<data>1</data>
+<url>javascript:getcountry_country("/Country-Activity/GUINEA");</url>
+</state>
+<state id="PU">
+<name>Guinea-Bissau</name>
+<data>1</data>
+<url>javascript:getcountry_country("/Country-Activity/GUINEA-BISSAU");</url>
+</state>
+<state id="GY">
+<name>Guyana</name>
+<data>2</data>
+<url>javascript:getcountry_country("/Country-Activity/GUYANA");</url>
+</state>
+<state id="HA">
+<name>Haiti</name>
+<data>1</data>
+<url>javascript:getcountry_country("/Country-Activity/HAITI");</url>
+</state>
+<state id="HO">
+<name>Honduras</name>
+<data>1</data>
+<url>javascript:getcountry_country("/Country-Activity/HONDURAS");</url>
+</state>
+<state id="IN">
+<name>India</name>
+<data>2</data>
+<url>javascript:getcountry_country("/Country-Activity/INDIA");</url>
+</state>
+<state id="ID">
+<name>Indonesia</name>
+<data>2</data>
+<url>javascript:getcountry_country("/Country-Activity/INDONESIA");</url>
+</state>
+<state id="IR">
+<name>Iran</name>
+<data>2</data>
+<url>javascript:getcountry_country("/Country-Activity/IRAN");</url>
+</state>
+<state id="IZ">
+<name>Iraq</name>
+<data>2</data>
+<url>javascript:getcountry_country("/Country-Activity/IRAQ");</url>
+</state>
+<state id="JO">
+<name>Jordan</name>
+<data>2</data>
+<url>javascript:getcountry_country("/Country-Activity/JORDAN");</url>
+</state>
+<state id="KR">
+<name>Kiribati</name>
+<data>2</data>
+<url>javascript:getcountry_country("/Country-Activity/KIRIBATI");</url>
+</state>
+<state id="KE">
+<name>Kenya</name>
+<data>1</data>
+<url>javascript:getcountry_country("/Country-Activity/KENYA");</url>
+</state>
+<state id="KG">
+<name>Kyrgyzstan</name>
+<data>2</data>
+<url>javascript:getcountry_country("/Country-Activity/KYRGYZSTAN");</url>
+</state>
+<state id="LA">
+<name>Lao PDR</name>
+<data>1</data>
+<url>javascript:getcountry_country("/Country-Activity/LAO-PEOPLE'S-DEMOCRATIC-REPUBLIC");</url>
+</state>
+<state id="LT">
+<name>Lesotho</name>
+<data>1</data>
+<url>javascript:getcountry_country("/Country-Activity/LESOTHO");</url>
+</state>
+<state id="LI">
+<name>Liberia</name>
+<data>1</data>
+<url>javascript:getcountry_country("/Country-Activity/LIBERIA");</url>
+</state>
+<state id="LY">
+<name>Libya</name>
+<data>2</data>
+<url>javascript:getcountry_country("/Country-Activity/LIBYA");</url>
+</state>
+<state id="MK">
+<name>The Former Yugoslav Republic of Macedonia</name>
+<data>2</data>
+<url>javascript:getcountry_country("/Country-Activity/THE-FORMER-YUGOSLAV-REPUBLIC-OF-MACEDONIA");</url>
+</state>
+<state id="MA">
+<name>Madagascar</name>
+<data>2</data>
+<url>javascript:getcountry_country("/Country-Activity/MADAGASCAR");</url>
+</state>
+<state id="MI">
+<name>Malawi</name>
+<data>1</data>
+<url>javascript:getcountry_country("/Country-Activity/MALAWI");</url>
+</state>
+<state id="MV">
+<name>Maldives</name>
+<data>2</data>
+<url>javascript:getcountry_country("/Country-Activity/MALDIVES");</url>
+</state>
+<state id="ML">
+<name>Mali</name>
+<data>1</data>
+<url>javascript:getcountry_country("/Country-Activity/MALI");</url>
+</state>
+<state id="RM">
+<name>Marshall Islands</name>
+<data>2</data>
+<url>javascript:getcountry_country("/Country-Activity/MARSHALL-ISLANDS");</url>
+</state>
+<state id="MR">
+<name>Mauritania</name>
+<data>1</data>
+<url>javascript:getcountry_country("/Country-Activity/MAURITANIA");</url>
+</state>
+<state id="MP">
+<name>Mauritius</name>
+<data>2</data>
+<url>javascript:getcountry_country("/Country-Activity/MAURITIUS");</url>
+</state>
+<state id="MX">
+<name>Mexico</name>
+<data>3</data>
+<url>javascript:getcountry_country("http://www.ihsn.org/adp/index.php?q=country-activities/Mexico");</url>
+</state>
+<state id="MD">
+<name>Moldova</name>
+<data>2</data>
+<url>javascript:getcountry_country("/Country-Activity/MOLDOVA");</url>
+</state>
+<state id="MG">
+<name>Mongolia</name>
+<data>2</data>
+<url>javascript:getcountry_country("/Country-Activity/MONGOLIA");</url>
+</state>
+<state id="MO">
+<name>Morocco</name>
+<data>2</data>
+<url>javascript:getcountry_country("/Country-Activity/MOROCCO");</url>
+</state>
+<state id="MZ">
+<name>Mozambique</name>
+<data>1</data>
+<url>javascript:getcountry_country("/Country-Activity/MOZAMBIQUE");</url>
+</state>
+<state id="BM">
+<name>Myanmar (Burma)</name>
+<data>1</data>
+<url>javascript:getcountry_country("/Country-Activity/MYANMAR");</url>
+</state>
+<state id="WA">
+<name>Namibia</name>
+<data>2</data>
+<url>javascript:getcountry_country("/Country-Activity/NAMIBIA");</url>
+</state>
+<state id="NP">
+<name>Nepal</name>
+<data>2</data>
+<url>javascript:getcountry_country("/Country-Activity/NEPAL");</url>
+</state>
+<state id="NU">
+<name>Nicaragua</name>
+<data>2</data>
+<url>javascript:getcountry_country("/Country-Activity/NICARAGUA");</url>
+</state>
+<state id="NG">
+<name>Niger</name>
+<data>1</data>
+<url>javascript:getcountry_country("/Country-Activity/NIGER");</url>
+</state>
+<state id="NI">
+<name>Nigeria</name>
+<data>2</data>
+<url>javascript:getcountry_country("/Country-Activity/NIGERIA");</url>
+</state>
+<state id="NE">
+<name>Niue</name>
+<data>2</data>
+<url>javascript:getcountry_country("/Country-Activity/NIUE");</url>
+</state>
+<state id="KN">
+<name>Korea, DR</name>
+<data>2</data>
+<url>javascript:getcountry_country("/Country-Activity/KOREA-DR");</url>
+</state>
+<state id="GZ">
+<name>Palestinian Territories</name>
+<data>1</data>
+<url>javascript:getcountry_country("/Country-Activity/PALESTINIAN-TERRITORIES");</url>
+</state>
+<state id="PK">
+<name>Pakistan</name>
+<data>1</data>
+<url>javascript:getcountry_country("/Country-Activity/PAKISTAN");</url>
+</state>
+<state id="PP">
+<name>Papua New Guinea</name>
+<data>1</data>
+<url>javascript:getcountry_country("/Country-Activity/PAPUA-NEW-GUINEA");</url>
+</state>
+<state id="PA">
+<name>Paraguay</name>
+<data>2</data>
+<url>javascript:getcountry_country("/Country-Activity/PARAGUAY");</url>
+</state>
+<state id="PE">
+<name>Peru</name>
+<data>1</data>
+<url>javascript:getcountry_country("/Country-Activity/PERU");</url>
+</state>
+<state id="RP">
+<name>Philippines</name>
+<data>2</data>
+<url>javascript:getcountry_country("/Country-Activity/PHILIPPINES");</url>
+</state>
+<state id="QA">
+<name>Qatar</name>
+<data>3</data>
+<url>javascript:getcountry_country("http://www.ihsn.org/adp/index.php?q=country-activities/Qatar");</url>
+</state>
+<state id="RS">
+<name>Russian Federation</name>
+<data>3</data>
+<url>javascript:getcountry_country("http://www.ihsn.org/adp/index.php?q=country-activities/Russian+Federation");</url>
+</state>
+<state id="RW">
+<name>Rwanda</name>
+<data>2</data>
+<url>javascript:getcountry_country("/Country-Activity/RWANDA");</url>
+</state>
+<state id="ST">
+<name>Saint Lucia</name>
+<data>1</data>
+<url>javascript:getcountry_country("/Country-Activity/SAINT-LUCIA");</url>
+</state>
+<state id="WS">
+<name>Samoa</name>
+<data>1</data>
+<url>javascript:getcountry_country("/Country-Activity/SAMOA");</url>
+</state>
+<state id="TP">
+<name>Sao Tome and Principe</name>
+<data>2</data>
+<url>javascript:getcountry_country("/Country-Activity/SAO-TOME-and-PRINCIPE");</url>
+</state>
+<state id="SG">
+<name>Senegal</name>
+<data>1</data>
+<url>javascript:getcountry_country("/Country-Activity/SENEGAL");</url>
+</state>
+<state id="SR">
+<name>Serbia</name>
+<data>3</data>
+<url>javascript:getcountry_country("http://www.ihsn.org/adp/index.php?q=country-activities/Serbia+and+Montenegro");</url>
+</state>
+<state id="SE">
+<name>Seychelles</name>
+<data>2</data>
+<url>javascript:getcountry_country("/Country-Activity/SEYCHELLES");</url>
+</state>
+<state id="SL">
+<name>Sierra Leone</name>
+<data>2</data>
+<url>javascript:getcountry_country("/Country-Activity/SIERRA-LEONE");</url>
+</state>
+<state id="BP">
+<name>Solomon Islands</name>
+<data>2</data>
+<url>javascript:getcountry_country("/Country-Activity/SOLOMON-ISLANDS");</url>
+</state>
+<state id="SO">
+<name>Somalia</name>
+<data>2</data>
+<url>javascript:getcountry_country("/Country-Activity/SOMALIA");</url>
+</state>
+<state id="SF">
+<name>South Africa</name>
+<data>2</data>
+<url>javascript:getcountry_country("/Country-Activity/SOUTH-AFRICA");</url>
+</state>
+<state id="CE">
+<name>Sri Lanka</name>
+<data>1</data>
+<url>javascript:getcountry_country("/Country-Activity/SRI-LANKA");</url>
+</state>
+<state id="VC">
+<name>St. Vincent and the Grenadines</name>
+<data>2</data>
+<url>javascript:getcountry_country("/Country-Activity/SAINT-VINCENT-AND-THE-GRENADINES");</url>
+</state>
+<state id="SU">
+<name>Sudan</name>
+<data>2</data>
+<url>javascript:getcountry_country("/Country-Activity/SUDAN");</url>
+</state>
+<state id="TE">
+<name>Timor Leste</name>
+<data>1</data>
+<url>javascript:getcountry_country("/Country-Activity/TIMOR-LESTE");</url>
+</state>
+<state id="WZ">
+<name>Swaziland</name>
+<data>2</data>
+<url>javascript:getcountry_country("/Country-Activity/SWAZILAND");</url>
+</state>
+<state id="SY">
+<name>Syrian Arab Republic</name>
+<data>1</data>
+<url>javascript:getcountry_country("/Country-Activity/SYRIAN-ARAB-REPUBLIC");</url>
+</state>
+<state id="TI">
+<name>Tajikistan</name>
+<data>2</data>
+<url>javascript:getcountry_country("/Country-Activity/TAJIKISTAN");</url>
+</state>
+<state id="TZ">
+<name>Tanzania</name>
+<data>2</data>
+<url>javascript:getcountry_country("/Country-Activity/TANZANIA");</url>
+</state>
+<state id="TH">
+<name>Thailand</name>
+<data>2</data>
+<url>javascript:getcountry_country("/Country-Activity/THAILAND");</url>
+</state>
+<state id="TO">
+<name>Togo</name>
+<data>1</data>
+<url>javascript:getcountry_country("/Country-Activity/TOGO");</url>
+</state>
+<state id="TN">
+<name>Tonga</name>
+<data>2</data>
+<url>javascript:getcountry_country("/Country-Activity/TONGA");</url>
+</state>
+<state id="TS">
+<name>Tunisia</name>
+<data>2</data>
+<url>javascript:getcountry_country("/Country-Activity/TUNISIA");</url>
+</state>
+<state id="TX">
+<name>Turkmenistan</name>
+<data>2</data>
+<url>javascript:getcountry_country("/Country-Activity/TURKMENISTAN");</url>
+</state>
+<state id="TV">
+<name>Tuvalu</name>
+<data>2</data>
+<url>javascript:getcountry_country("/Country-Activity/TUVALU");</url>
+</state>
+<state id="UG">
+<name>Uganda</name>
+<data>1</data>
+<url>javascript:getcountry_country("/Country-Activity/UGANDA");</url>
+</state>
+<state id="UP">
+<name>Ukraine</name>
+<data>2</data>
+<url>javascript:getcountry_country("/Country-Activity/UKRAINE");</url>
+</state>
+<state id="UY">
+<name>Uruguay</name>
+<data>3</data>
+<url>javascript:getcountry_country("http://www.ihsn.org/adp/index.php?q=country-activities/Uruguay");</url>
+</state>
+<state id="UZ">
+<name>Uzbekistan</name>
+<data>2</data>
+<url>javascript:getcountry_country("/Country-Activity/UZBEKISTAN");</url>
+</state>
+<state id="NH">
+<name>Vanuatu</name>
+<data>2</data>
+<url>javascript:getcountry_country("/Country-Activity/VANUATU");</url>
+</state>
+<state id="VM">
+<name>Viet Nam</name>
+<data>1</data>
+<url>javascript:getcountry_country("/Country-Activity/VIET-NAM");</url>
+</state>
+<state id="WS">
+<name>Western Samoa</name>
+<data>1</data>
+<url>javascript:getcountry_country("/Country-Activity/SAMOA");</url>
+</state>
+<state id="YM">
+<name>Yemen</name>
+<data>1</data>
+<url>javascript:getcountry_country("/Country-Activity/YEMEN");</url>
+</state>
+<state id="ZA">
+<name>Zambia</name>
+<data>2</data>
+<url>javascript:getcountry_country("/Country-Activity/ZAMBIA");</url>
+</state>
+<state id="ZI">
+<name>Zimbabwe</name>
+<data>1</data>
+<url>javascript:getcountry_country("/Country-Activity/ZIMBABWE");</url>
+</state>
+</countrydata>

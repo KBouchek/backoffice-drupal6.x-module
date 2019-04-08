@@ -1,0 +1,183 @@
+<script type="text/javascript" src="../sites/map/world/with_javascript/js/JavaScriptFlashGateway.js">
+</script>
+<script type="text/javascript" src="../sites/map/world/with_javascript/js/Exception.js">
+</script>
+<script type="text/javascript" src="../sites/map/world/with_javascript/js/FlashTag.js">
+</script>
+<script type="text/javascript" src="../sites/map/world/with_javascript/js/FlashSerializer.js">
+</script>
+<script type="text/javascript" src="../sites/map/world/with_javascript/js/FlashProxy.js">
+</script> 
+
+<script type="text/javascript">
+var uid = new Date().getTime();
+var flashProxy = new FlashProxy(uid,'../sites/map/world/with_javascript/js/JavaScriptFlashGateway.swf');
+var tag = new FlashTag('../sites/map/world/world.swf?data_file=../sites/map/world/data.xml', 700, 300);
+tag.setFlashvars('lcId='+uid);
+tag.write(document);
+</script>
+
+<script type="text/javascript">
+function go(arg) {
+var tab = arg.split("/");
+var requete = tab[0];
+if (requete == 'http:') {window.open(arg);}
+else {document.location.href='../Country-Activity/' + arg;}	
+}
+</script>
+
+
+<table border="0" style="width: 700px;">
+<tr ><td width = "350"><center>
+<select onchange="javascript:go(this.options[this.selectedIndex].value);">
+
+
+<option value="../../Country-Activities">Select Country</option>
+<option value="AFGHANISTAN">Afghanistan</option>
+<option value="ALBANIA">Albania</option>
+<option value="ALGERIA">Algeria</option>
+<option value="ANGOLA">Angola</option>
+<option value="http://www.ihsn.org/adp/index.php?q=country-activities/Argentina">Argentina</option>
+<option value="ARMENIA">Armenia</option>
+<option value="AZERBAIJAN">Azerbaijan</option>
+<option value="BANGLADESH">Bangladesh</option>
+<option value="BARBADOS">Barbados</option>
+<option value="BENIN">Benin</option>
+<option value="BHUTAN">Bhutan</option>
+<option value="BOLIVIA">Bolivia</option>
+<option value="BOSNIA-HERZEGOVINA">Bosnia and Herzegovina</option>
+<option value="BOTSWANA">Botswana</option>
+<option value="http://www.ihsn.org/adp/index.php?q=country-activities/Brazil">Brazil</option>
+<option value="BURKINA-FASO">Burkina Faso</option>
+<option value="BURUNDI">Burundi</option>
+<option value="CAMBODIA">Cambodia</option>
+<option value="CAMEROON">Cameroon</option>
+<option value="CAPE-VERDE">Cape Verde</option>
+<option value="CENTRAL-AFRICAN-REPUBLIC">Central African Republic</option>
+<option value="CHAD">Chad</option>
+<option value="CHINA">China</option>
+<option value="COLOMBIA ">Colombia</option>
+<option value="COMOROS">Comoros</option>
+<option value="CONGO-REPUBLIC-OF">Congo (Republic of)</option>
+<option value="CONGO-DEMOCRATIC-REPUBLIC">Congo (Democratic Republic of the)</option>
+<option value="CÔTE-D'IVOIRE">Cote d'Ivoire</option>
+<option value="DJIBOUTI">Djibouti</option>
+<option value="DOMINICA">Dominica</option>
+<option value="DOMINICAN-REPUBLIC">Dominican Republic</option>
+<option value="ECUADOR">Ecuador</option>
+<option value="EGYPT">Egypt</option>
+<option value="EL-SALVADOR">El Salvador</option>
+<option value="EQUATORIAL-GUINEA">Equatorial Guinea</option>
+<option value="ERITREA">Eritrea</option>
+<option value="ETHIOPIA">Ethiopia</option>
+<option value="FIJI">Fiji</option>
+<option value="GABON">Gabon</option>
+<option value="GAMBIA">Gambia</option>
+<option value="GEORGIA">Georgia</option>
+<option value="GHANA">Ghana</option>
+<option value="GRENADA">Grenada</option>
+<option value="GUATEMALA">Guatemala</option>
+<option value="GUINEA">Guinea</option>
+<option value="GUINEA-BISSAU">Guinea-Bissau</option>
+<option value="GUYANA">Guyana</option>
+<option value="HAITI">Haiti</option>
+<option value="HONDURAS">Honduras</option>
+<option value="INDIA">India</option>
+<option value="INDONESIA">Indonesia</option>
+<option value="IRAN">Iran</option>
+<option value="IRAQ">Iraq</option>
+<option value="JORDAN">Jordan</option>
+<option value="KENYA">Kenya</option>
+<option value="KIRIBATI">Kiribati</option>
+<option value="KOREA-DR">Korea, DR</option>
+<option value="KOSOVO">Kosovo</option>
+<option value="KYRGYZSTAN">Kyrgyzstan</option>
+<option value="LAO-PEOPLE'S-DEMOCRATIC-REPUBLIC">Laos</option>
+<option value="LESOTHO">Lesotho</option>
+<option value="LIBERIA">Liberia</option>
+<option value="LYBIAN-ARAB-JAMAHIRYA">Libyan Arab Jamahiriya</option>
+<option value="MACEDONIA-FORMER-YUGOSLAV-REPUBLIC">Macedonia, FYR</option>
+<option value="MADAGASCAR">Madagascar</option>
+<option value="MALAWI">Malawi</option>
+<option value="MALDIVES">Maldives</option>
+<option value="MALI">Mali</option>
+<option value="MARSHALL-ISLANDS">Marshall Islands</option>
+<option value="MAURITANIA">Mauritania</option>
+<option value="MAURITIUS">Mauritius</option>
+<option value="http://www.ihsn.org/adp/index.php?q=country-activities/Mexico">Mexico</option>
+<option value="MICRONESIA">Micronesia Federated States</option>
+<option value="MOLDOVA">Moldova</option>
+<option value="MONGOLIA">Mongolia</option>
+<option value="MOROCCO">Morocco</option>
+<option value="MOZAMBIQUE">Mozambique</option>
+<option value="MYANMAR">Myanmar (Burma)</option>
+<option value="NAMIBIA">Namibia</option>
+<option value="NEPAL">Nepal</option>
+<option value="NICARAGUA">Nicaragua</option>
+<option value="NIGER">Niger</option>
+<option value="NIGERIA">Nigeria</option>
+<option value="NIUE">Niue</option>
+<option value="PALESTINIAN-TERRITORIES">Palestinian Territories</option>
+<option value="PAKISTAN">Pakistan</option>
+<option value="PAPUA-NEW-GUINEA">Papua New Guinea</option>
+<option value="PARAGUAY">Paraguay</option>
+<option value="PERU">Peru</option>
+<option value="PHILIPPINES">Philippines</option>
+<option value="http://www.ihsn.org/adp/index.php?q=country-activities/Qatar">Qatar</option>
+<option value="http://www.ihsn.org/adp/index.php?q=country-activities/Russian+Federation">Russian Federation</option>
+<option value="RWANDA">Rwanda</option>
+<option value="SAINT-LUCIA">Saint Lucia</option>
+<option value="SAMOA">Samoa</option>
+<option value="SAO-TOME-and-PRINCIPE">Sao Tome and Principe</option>
+<option value="SENEGAL">Senegal</option>
+<option value="http://www.ihsn.org/adp/index.php?q=country-activities/Serbia+and+Montenegro">Serbia and Montenegro</option>
+<option value="SEYCHELLES">Seychelles</option>
+<option value="SIERRA-LEONE">Sierra Leone</option>
+<option value="SLOVAKIA">Slovakia</option>
+<option value="SOLOMON-ISLANDS">Solomon Islands</option>
+<option value="SOMALIA">Somalia</option>
+<option value="SOUTH-AFRICA">South Africa</option>
+<option value="SRI-LANKA">Sri Lanka</option>
+<option value="SAINT-VINCENT-AND-THE-GRENADINES">St. Vincent and the Grenadines</option>
+<option value="SUDAN">Sudan</option>
+<option value="SWAZILAND">Swaziland</option>
+<option value="SYRIAN-ARAB-REPUBLIC">Syrian Arab Republic</option>
+<option value="TAJIKISTAN">Tajikistan</option>
+<option value="TANZANIA">Tanzania (United Republic of )</option>
+<option value="THAILAND">Thailand</option>
+<option value="TIMOR-LESTE">Timor Leste</option>
+<option value="TOGO">Togo</option>
+<option value="TONGA">Tonga</option>
+<option value="TUNISIA">Tunisia</option>
+<option value="TURKMENISTAN">Turkmenistan</option>
+<option value="TUVALU">Tuvalu</option>
+<option value="UGANDA">Uganda</option>
+<option value="UKRAINE">Ukraine</option>
+<option value="http://www.ihsn.org/adp/index.php?q=country-activities/Uruguay">Uruguay</option>
+<option value="UZBEKISTAN">Uzbekistan</option>
+<option value="VANUATU">Vanuatu</option>
+<option value="VIET-NAM">Viet Nam</option>
+<option value="YEMEN">Yemen</option>
+<option value="ZAMBIA">Zambia</option>
+<option value="ZIMBABWE">Zimbabwe</option>
+</select></center>
+</td>
+<td width="350px" style="vertical-align:middle">
+<center><a href="javascript:flashProxy.call('zoomOut');">Zoom Out</a></center></td>
+</tr></table>
+
+
+
+<select name="COUPEZ l'OPTION CHOISIE et COLLEZ LA DANS LA LISTE ACTIVE CI-DESSUS" style="visibility:hidden;">
+<option value="ARGENTINA">Argentina</option>
+<option value="BRAZIL">Brazil</option>
+<option value="JN">Jan Mayen</option>
+<option value="AZ">Azores (Pt.)</option>
+<option value="CP">Canary Islands (Sp.)</option>
+<option value="CQ">Northern Mariana Islands</option>
+<option value="JU">Juan De Nova Island</option>
+<option value="GO">Glorioso Islands</option>
+<option value="MC">Macau</option>
+<option value="ME">Madeira (Pt.)</option>
+<option value="SH">St. Helena</option>
+</select>
